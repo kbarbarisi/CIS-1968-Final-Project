@@ -1,0 +1,553 @@
+import java.awt.*;
+
+
+public class Jeopardy extends EasyApp
+{
+public static void main(String[] args)
+{ new Jeopardy();}
+
+Label lJeopardy = addLabel("Jeopardy", 60, 40, 300, 80, this);
+
+Label lScore = addLabel("Score", 1095, 60, 100, 90, this);
+TextField tScore = addTextField("0", 1210, 60, 130, 70, this);
+
+// BUTTON (name, int x, int y, int width, int height)
+
+
+//Science
+Button bScienceTitle = addButton("Science", 50, 150, 200, 100, this);
+Button bScience1 = addButton("100", 50, 250, 200, 130, this);
+Button bScience2 = addButton("200", 50, 380, 200, 130, this);
+Button bScience3 = addButton("300", 50, 510, 200, 130, this);
+Button bScience4 = addButton("400", 50, 640, 200, 130, this);
+
+//Sports
+Button bSportsTitle = addButton("Sports", 250, 150, 200, 100, this);
+Button bSports1 = addButton("100", 250, 250, 200, 130, this);
+Button bSports2 = addButton("200", 250, 380, 200, 130, this);
+Button bSports3 = addButton("300", 250, 510, 200, 130, this);
+Button bSports4 = addButton("400", 250, 640, 200, 130, this);
+
+//History
+Button bHistoryTitle = addButton("History", 450, 150, 200, 100, this);
+Button bHistory1 = addButton("100", 450, 250, 200, 130, this);
+Button bHistory2 = addButton("200", 450, 380, 200, 130, this);
+Button bHistory3 = addButton("300", 450, 510, 200, 130, this);
+Button bHistory4 = addButton("400", 450, 640, 200, 130, this);
+
+//Math
+Button bMathTitle = addButton("Math", 650, 150, 200, 100, this);
+Button bMath1 = addButton("100", 650, 250, 200, 130, this);
+Button bMath2 = addButton("200", 650, 380, 200, 130, this);
+Button bMath3 = addButton("300", 650, 510, 200, 130, this);
+Button bMath4 = addButton("400", 650, 640, 200, 130, this);
+
+//Pop Culture
+Button bPopTitle = addButton("Pop Culture", 850, 150, 300, 100, this);
+Button bPop1 = addButton("100", 850, 250, 300, 130, this);
+Button bPop2 = addButton("200", 850, 380, 300, 130, this);
+Button bPop3 = addButton("300", 850, 510, 300, 130, this);
+Button bPop4 = addButton("400", 850, 640, 300, 130, this);
+
+//Art
+bArtTitle.setFont(new Font("Arial", 1, 36));
+bArt1.setFont(new Font("Arial", 1, 36));
+bArt2.setFont(new Font("Arial", 1, 36));
+bArt3.setFont(new Font("Arial", 1, 36));
+bArt4.setFont(new Font("Arial", 1, 36));
+
+bPlayAgain.setFont(new Font("Arial", 1, 16));
+
+}
+
+public void actions(Object source,String command)
+{
+//Science
+if (source == bScience1)
+{ science1(); }
+if(source == bScience2)
+{ science2(); }
+if (source == bScience3)
+{ science3(); }
+if (source == bScience4)
+{ science4(); }
+
+//Sports
+if (source == bSports1)
+{ sports1(); }
+if (source == bSports2)
+{ sports2(); }
+if (source == bSports3)
+{ sports3(); }
+if (source == bSports4)
+{ sports4(); }
+
+//History
+if (source == bHistory1)
+{ history1(); }
+if (source == bHistory2)
+{ history2(); }
+if (source == bHistory3)
+{ history3(); }
+if (source == bHistory4)
+{ history4(); }
+
+//Math
+if (source == bMath1)
+{ math1(); }
+if (source == bMath2)
+{ math2(); }
+if (source == bMath3)
+{ math3(); }
+if (source == bMath4)
+{ math4(); }
+
+//Pop Culture
+if (source == bPop1)
+{ pop1(); }
+if (source == bPop2)
+{ pop2(); }
+if (source == bPop3)
+{ pop3(); }
+if (source == bPop4)
+{ pop4(); }
+
+//Art
+if (source == bArt1)
+{ art1(); }
+if (source == bArt2)
+{ art2(); }
+if (source == bArt3)
+{ art3(); }
+if (source == bArt4)
+{ art4(); }
+
+if (source == bPlayAgain)
+{
+//Science
+bScience1.setEnabled(true);
+bScience2.setEnabled(true);
+bScience3.setEnabled(true);
+bScience4.setEnabled(true);
+
+//Sports
+bSports1.setEnabled(true);
+bSports2.setEnabled(true);
+bSports3.setEnabled(true);
+bSports4.setEnabled(true);
+
+//History
+bHistory1.setEnabled(true);
+bHistory2.setEnabled(true);
+bHistory3.setEnabled(true);
+bHistory4.setEnabled(true);
+
+//Math
+bMath1.setEnabled(true);
+bMath2.setEnabled(true);
+bMath3.setEnabled(true);
+bMath4.setEnabled(true);
+
+//Pop Culture
+bPop1.setEnabled(true);
+bPop2.setEnabled(true);
+bPop3.setEnabled(true);
+bPop4.setEnabled(true);
+
+//Art
+bArt1.setEnabled(true);
+bArt2.setEnabled(true);
+bArt3.setEnabled(true);
+bArt4.setEnabled(true);
+
+score = 0;
+}
+tScore.setText(score + "");
+}
+
+public void science1()
+{
+  String guess = inputString("What element exists in the highest proportion in the human body?");
+  if (guess.equals("Oxygen") || guess.equals("oxygen"))
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong..." );
+  }
+  bScience1.setEnabled(false);
+}
+
+public void science2()
+{
+  String guess = inputString("Of the following, which has the longest recorded lifespan? A: Termi$
+  if (guess.equals("Freshwater Oyster") || guess.equals("D") || guess.equals("d") || guess.equals$
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong..." );
+  }
+  bScience2.setEnabled(false);
+}
+
+public void science3()
+{
+  String guess = inputString("This type of matter has a definite volume but no definite shape. Wh$
+  if (guess.equals("Liquid") || guess.equals("liquid"))
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong..." );
+  }
+  bScience3.setEnabled(false);
+}
+
+public void science4()
+{
+  String guess = inputString("This geologic formation may be found overhead in a cave. What is it$
+  if (guess.equals("Stalactite") || guess.equals("stalactite"))
+  {
+    score = score + 400;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 400;
+    output("Wrong..." );
+  }
+  bScience4.setEnabled(false);
+}
+
+public void sports1()
+{
+  String guess = inputString("Who is the highest earning female tennis player?");
+  if (guess.equals("Naomi Osaka") || guess.equals("naomi osaka") || guess.equals("naomi") || gues$
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong... " );
+  }
+  bSports1.setEnabled(false);
+}
+
+public void sports2()
+{
+  int guess = inputInt("What is a perfect score in bowling?");
+  if ( guess == 300 )
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong... " );
+  }
+  bSports2.setEnabled(false);
+}
+
+public void sports3()
+{
+  int guess = inputInt("How many players from the same team are on a baseball field at a time? (e$
+  if ( guess == 9 )
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong... " );
+  }
+  bSports3.setEnabled(false);
+}
+
+public void sports4()
+{
+  String guess = inputString("What is it called when a bowler makes three strikes in a row?");
+  if ( guess.equals("Turkey") )
+  {
+    score = score + 400;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 400;
+    output("Wrong... " );
+  }
+  bSports4.setEnabled(false);
+}
+
+
+public void history1()
+{
+  int guess = inputInt("What year did WW II end?");
+  if (guess == 1945)
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong... ");
+  }
+  bHistory1.setEnabled(false);
+}
+
+ublic void history2()
+{
+  int guess = inputInt("What year did the French Revolution begin in?");
+  if (guess == 1789)
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong... ");
+  }
+  bHistory2.setEnabled(false);
+}
+
+public void history3()
+{
+  String guess = inputString("In what city was the first hospital in America located?");
+  if (guess.equals("Philadelphia") || guess.equals("philadelphia") || guess.equals("philly") || g$
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong... ");
+  }
+  bHistory3.setEnabled(false);
+}
+
+public void history4()
+{
+      String guess = inputString("About how long ago did dinosaurs go extinct?");
+      if (guess.equals("65 million years") || guess.equals("65 million") || guess.equals("65 mill$
+      {
+         score = score + 400;
+         output("Right!");
+      }
+      else
+      {
+         score = score - 400;
+         output("Wrong... ");
+      }
+      bHistory4.setEnabled(false);
+}
+
+public void math1()
+{
+  int guess = inputInt("What is 5! ?");
+  if (guess == 120)
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong...");
+  }
+    bMath1.setEnabled(false);
+}
+
+public void math2()
+{
+  String guess = inputString("Is (A) a pound of a feathers or (B) a pound of gold heavier?");
+  if (guess.equals("neither") || guess.equals("Neither"))
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong...");
+  }
+  bMath2.setEnabled(false);
+}
+
+public void math3()
+{
+  String guess = inputString("If Steve drive eighty miles/hour, how long will it take for him to $
+  if (guess.equals("1 hour") || guess.equals("one hour"))
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong...");
+  }
+  bMath3.setEnabled(false);
+}
+
+public void math4()
+{
+  String guess = inputString("What is the derivative of 5x^(7/6)?");
+  if (guess.equals("(35/6)x^(1/6)") || guess.equals("(35/6)x^1/6)"))
+  {
+    score = score + 400;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 400;
+    output("Wrong...");
+  }
+  bMath4.setEnabled(false);
+}
+
+public void pop1()
+{
+  String guess = inputString("What was the first Pixar movie?");
+  if (guess.equals("Toy Story") || guess.equals("toy story"))
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong...");
+  }
+  bPop1.setEnabled(false);
+}
+
+public void pop2()
+{
+  int guess = inputInt("How many seasons of 'The Office' are there? (enter an integer)");
+  if (guess == 9)
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong...");
+  }
+  bPop2.setEnabled(false);
+}
+
+public void pop3()
+{
+  String guess = inputString("Which celebrity has the most followers on Instagram?");
+  if (guess.equals("Cristiano Ronaldo") || guess.equals("Cristiano") || guess.equals("cristiano r$
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong...");
+  }
+  bPop3.setEnabled(false);
+}
+
+public void pop4()
+{
+  String guess = inputString("How much money does the winner of Squid Game win?");
+  if (guess.equals("456 billion won"))
+  {
+    score = score + 400;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 400;
+    output("Wrong...");
+  }
+  bPop4.setEnabled(false);
+}
+
+public void art1()
+{
+  String guess = inputString("If you mix blue and red together, what color do you get?");
+  if (guess == "Purple" || guess == "purple")
+  {
+    score = score + 100;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 100;
+    output("Wrong...");
+  }
+  bArt1.setEnabled(false);
+}
+
+public void art2()
+{
+  String guess = inputString("What famous artist painted 'Starry Night'?");
+  if (guess.equals("Vincent van Gogh") || guess.equals("van Gogh") || guess.equals("van gogh"))
+  {
+    score = score + 200;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 200;
+    output("Wrong...");
+  }
+  bArt2.setEnabled(false);
+}
+
+public void art3()
+{
+  String guess = inputString("What type of street art originated in Philadelphia?");
+  if (guess.equals("Graffiti") || guess.equals("graffiti"))
+  {
+    score = score + 300;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 300;
+    output("Wrong...");
+  }
+  bArt3.setEnabled(false);
+}
+
+public void art4()
+{
+  String guess = inputString("What museum did Beyonce and Jay-Z create their famous music video i$
+  if (guess.equals("The Louvre") || guess.equals("Louvre") || guess.equals("louvre"))
+  {
+    score = score + 400;
+    output("Right!");
+  }
+  else
+  {
+    score = score - 400;
+    output("Wrong...");
+  }
+  bArt4.setEnabled(false);
+}
+
+}
